@@ -48,6 +48,7 @@ Usage_Page_Constants={
     "Button_ID"          : 0x09,
     "Physical_Interface" : 0x0F,
     "Ordinal_ID"         : 0x0A,
+    "Vendor_Defined_ID"  : 0xFF00,
 }
 GenericDesktop_Constants={
 #Generic Desktop Page
@@ -60,6 +61,8 @@ GenericDesktop_Constants={
     "Rx_ID"        : 0x33,
     "Ry_ID"        : 0x34,
     "Rz_ID"        : 0x35,
+    "Slider_ID"    : 0x36,
+    "Hat_Switch_ID": 0x39,
     "Byte_Count"   : 0x3B,
 }
 SimulationControl_Constants={
@@ -205,6 +208,7 @@ UsageByPage={
     "Button_ID"          : Button_Constants,
     "Physical_Interface" : PID_Usage_Constants,
     "Ordinal_ID"         : Ordinal_Constans,
+    "Vendor_Defined_ID"  : GenericDesktop_Constants,
 }
 ConstByItem={
     "Input"          : IOF_Constants,

@@ -67,7 +67,8 @@ def MatchDefine(defSets,findFunc):
 		if result:
 			return defDict
 	return None
-fileIn="DscInput.rptDsc"
+fileIn="vb.rptDsc"
+#fileIn="DscInput.rptDsc"
 fileOut=open("Hex.out",'w')
 lines=open(fileIn).readlines()
 bytecount=0
@@ -110,7 +111,14 @@ for line in lines:
 		#unsigned preDefinedConstant
 	else:
 		if len(inBracket[1:-1])>0:
-			x=int(inBracket[1:-1])
+			print(inBracket[1:-1])
+			if inBracket[1:-1].endswith('h') or inBracket[1:-1].endswith('H'):
+				print(inBracket)
+				print(inBracket[1:-1][:-1])
+				x=int(inBracket[1:-1][:-1], base=16)
+				print(x)
+			else:
+				x=int(inBracket[1:-1], base=10)
 			size=Byte_Size(x)*8
 			# if item[0]=='Unit_Exponent': #Unit_Exponent exception
 			# 	size=4 #fucking usb.org's doc
@@ -120,6 +128,7 @@ for line in lines:
 			out=ShortItem(item[1],0,0,changePage) #defalut none value
 
 	if item[0]=='Usage_Page': #update Usage_Page
+		print("Update usage page")
 		usagePage=value[0]
 
 	fileOut.write(out[0]+',') # prefix
